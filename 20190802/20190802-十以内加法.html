@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <script src="jquery-3.4.1.js"></script>
+            <script>
+        var add1,add2;
+		var goodscore=0;
+		var wrongscore=0;
+        function ttt(){
+			add1=Math.floor(Math.random()*9+1);
+			sadd1=String(add1);
+			add2=Math.floor(Math.random()*(10-add1)+1);
+			sadd2=String(add2);
+			$("#add1").text(add1);
+			$("#add2").text(add2);
+            $("#result").val("");
+	    }
+
+	     function judge(){
+		   var result=$("#result").val();
+		   var test=add1+add2;
+		   if(test==result){
+			    var good=$("#good").html()+"&radic;";
+				$("#good").html(good);
+				goodscore++;
+				$("#goodscore").text(goodscore);
+            }else			{
+				var good=$("#wrong").html()+"&times;";
+				$("#wrong").html(good);
+				wrongscore++;
+				$("#wrongscore").text(wrongscore);
+            };
+			ttt();
+			}
+	
+		 $(document).ready(function(){
+           ttt();
+		   });
+
+		</script>
+
+	</head>
+
+	<body>
+        
+        <div>
+            <span id="add1"></span>+<span id="add2"></span>=<input type=textbox id="result" /><input type=button onclick="judge()" value="judge"/>
+			<p>
+			正确：<span id="goodscore"></span>----<span id="good" style="font-size:40px;color:red;"></span></p>
+			错误：<span id="wrongscore"></span>----<span id="wrong" style="font-size:40px;"></span>
+        </div>
+        
+    </body>
+</html>
